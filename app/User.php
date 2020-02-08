@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function insurances()
+    {
+        return $this->hasMany('App\Models\Insurance', 'user_id', 'id');
+    }
 }
